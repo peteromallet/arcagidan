@@ -1,4 +1,4 @@
-import { Trophy, Building2, Award } from 'lucide-react'
+import { Trophy, Award } from 'lucide-react'
 
 export default function PrizeSection() {
   return (
