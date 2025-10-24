@@ -11,6 +11,10 @@ interface VideoPanel {
   posterUrl: string
 }
 
+interface HeroProps {
+  onScrollClick: () => void
+}
+
 const videoPanels: VideoPanel[] = [
   {
     id: 1,
@@ -46,7 +50,7 @@ const videoPanels: VideoPanel[] = [
   },
 ]
 
-export default function Hero() {
+export default function Hero({ onScrollClick }: HeroProps) {
   const [hoveredPanel, setHoveredPanel] = useState<number | null>(null)
   const [isMobile, setIsMobile] = useState(false)
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({})
@@ -265,8 +269,11 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <div 
-        className="absolute bottom-8 left-0 right-0 z-20 animate-bounce flex justify-center"
-        onClick={(e) => e.stopPropagation()}
+        className="absolute bottom-8 left-0 right-0 z-20 animate-bounce flex justify-center cursor-pointer"
+        onClick={(e) => {
+          e.stopPropagation()
+          onScrollClick()
+        }}
       >
         {isMobile ? (
           <ChevronDown className="w-8 h-8 text-white" />

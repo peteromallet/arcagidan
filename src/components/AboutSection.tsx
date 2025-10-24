@@ -1,6 +1,8 @@
-export default function AboutSection() {
+import { forwardRef } from 'react'
+
+const AboutSection = forwardRef<HTMLElement>((_props, ref) => {
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-[#0f1922] via-[#11212c] to-[#12202f] relative overflow-hidden">
+    <section ref={ref} className="py-24 px-6 bg-gradient-to-b from-[#0f1922] via-[#11212c] to-[#12202f] relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent pointer-events-none"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="max-w-4xl mx-auto relative z-10">
@@ -57,5 +59,7 @@ export default function AboutSection() {
       </div>
     </section>
   )
-}
+})
+
+export default AboutSection
 
