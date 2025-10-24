@@ -31,7 +31,18 @@ export default function AboutSection() {
             </p>
 
             <p className="text-xl">
-              In doing so, we hope to <strong>honour those whose work and passion preceded the Renaissance</strong> in the hopes that our collected art and struggle over the years might increase the odds that we have a flourishing ecosystem of open models.
+              In doing so, we hope to <strong>honour those whose work and passion preceded the Renaissance:</strong>
+            </p>
+
+            <ul className="list-disc list-inside text-xl space-y-2 ml-4">
+              <li>Francesco Petrarca</li>
+              <li>Arnolfo di Cambio</li>
+              <li>Giotto di Bondone</li>
+              <li>Jean Buridan</li>
+            </ul>
+
+            <p className="text-xl">
+              Our hope that our collected art and struggle over the years might increase the odds that we have a flourishing ecosystem of open models.
             </p>
 
             <p className="text-xl">

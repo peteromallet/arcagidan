@@ -47,7 +47,17 @@ const videoPanels: VideoPanel[] = [
 
 export default function Hero() {
   const [hoveredPanel, setHoveredPanel] = useState<number | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({})
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     if (hoveredPanel !== null && videoRefs.current[hoveredPanel]) {
@@ -90,32 +100,36 @@ export default function Hero() {
               playsInline
             />
 
-            {/* Hover Overlay Background */}
-            <div
-              className={cn(
-                'absolute left-0 right-0 bottom-0 transition-opacity duration-300 z-10',
-                hoveredPanel === panel.id ? 'opacity-100' : 'opacity-0'
-              )}
-              style={{ top: '47%', background: 'rgba(255, 255, 255, 0.45)' }}
-            />
+            {/* Hover Overlay Background - Hidden on mobile */}
+            {!isMobile && (
+              <div
+                className={cn(
+                  'absolute left-0 right-0 bottom-0 transition-opacity duration-300 z-10',
+                  hoveredPanel === panel.id ? 'opacity-100' : 'opacity-0'
+                )}
+                style={{ top: '47%', background: 'rgba(255, 255, 255, 0.45)' }}
+              />
+            )}
 
-            {/* Hover Overlay Text */}
-            <div
-              className={cn(
-                'absolute left-0 right-0 flex flex-col items-center px-8 transition-opacity duration-300 z-20',
-                hoveredPanel === panel.id ? 'opacity-100' : 'opacity-0'
-              )}
-              style={{ top: '50%' }}
-            >
-              <h3 className="text-2xl md:text-3xl mb-3 font-bodar text-center">
-                <span className="text-black">{panel.titleHighlight.before}</span>
-                <span className="text-yellow-300">{panel.titleHighlight.highlight}</span>
-                <span className="text-black">{panel.titleHighlight.after}</span>
-              </h3>
-              <p className="text-black text-sm md:text-base font-semibold text-center max-w-md leading-relaxed">
-                {panel.description}
-              </p>
-            </div>
+            {/* Hover Overlay Text - Hidden on mobile */}
+            {!isMobile && (
+              <div
+                className={cn(
+                  'absolute left-0 right-0 flex flex-col items-center px-8 transition-opacity duration-300 z-20',
+                  hoveredPanel === panel.id ? 'opacity-100' : 'opacity-0'
+                )}
+                style={{ top: '50%' }}
+              >
+                <h3 className="text-2xl md:text-3xl mb-3 font-bodar text-center">
+                  <span className="text-black">{panel.titleHighlight.before}</span>
+                  <span className="text-yellow-300">{panel.titleHighlight.highlight}</span>
+                  <span className="text-black">{panel.titleHighlight.after}</span>
+                </h3>
+                <p className="text-black text-sm md:text-base font-semibold text-center max-w-md leading-relaxed">
+                  {panel.description}
+                </p>
+              </div>
+            )}
           </div>
         ))}
       </div>
