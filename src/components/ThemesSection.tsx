@@ -61,30 +61,30 @@ export default function ThemesSection() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="relative bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group-hover:scale-105 h-full">
-                <div className="flex gap-6">
-                  {/* Video Square */}
-                  <div className="w-24 h-24 rounded-lg overflow-hidden border border-white/20 flex-shrink-0">
-                    <video
-                      ref={(el) => (videoRefs.current[index] = el)}
-                      src={theme.video}
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+              <div className="relative bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group-hover:scale-105 h-full flex flex-col">
+                {/* Video */}
+                <div className="w-1/2 aspect-square rounded-lg overflow-hidden border border-white/20 mb-6">
+                  <video
+                    ref={(el) => (videoRefs.current[index] = el)}
+                    src={theme.video}
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-                  {/* Content */}
+                {/* Content */}
+                <div className="flex-grow flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl md:text-3xl text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all font-bodar">
                       {theme.title}
                     </h3>
                   </div>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    {theme.description}
+                  </p>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed mt-4">
-                  {theme.description}
-                </p>
               </div>
             </div>
           ))}
