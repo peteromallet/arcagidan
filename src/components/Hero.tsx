@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { cn } from '@/lib/utils'
+import { ChevronDown } from 'lucide-react'
 
 interface VideoPanel {
   id: number
@@ -74,7 +75,7 @@ export default function Hero() {
   }, [hoveredPanel])
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden" style={{ minHeight: '100vh', minHeight: '100dvh' }}>
       {/* Video Panels Grid */}
       <div className="absolute inset-0 grid grid-cols-4 grid-rows-1">
         {videoPanels.map((panel) => (
@@ -264,9 +265,13 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-white rounded-full"></div>
-        </div>
+        {isMobile ? (
+          <ChevronDown className="w-8 h-8 text-white" />
+        ) : (
+          <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-2 bg-white rounded-full"></div>
+          </div>
+        )}
       </div>
     </section>
   )
