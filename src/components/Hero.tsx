@@ -81,8 +81,21 @@ export default function Hero() {
           <div
             key={panel.id}
             className="relative overflow-hidden group cursor-pointer"
-            onMouseEnter={() => setHoveredPanel(panel.id)}
-            onMouseLeave={() => setHoveredPanel(null)}
+            onMouseEnter={() => !isMobile && setHoveredPanel(panel.id)}
+            onMouseLeave={() => !isMobile && setHoveredPanel(null)}
+            onClick={() => {
+              if (isMobile) {
+                // On mobile, just play/pause the video without changing hover state
+                const video = videoRefs.current[panel.id]
+                if (video) {
+                  if (video.paused) {
+                    video.play()
+                  } else {
+                    video.pause()
+                  }
+                }
+              }
+            }}
           >
             {/* Video Background */}
             <video
