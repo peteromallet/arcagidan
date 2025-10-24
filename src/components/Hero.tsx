@@ -75,7 +75,7 @@ export default function Hero() {
   }, [hoveredPanel])
 
   return (
-    <section className="relative h-screen w-full overflow-hidden" style={{ minHeight: '100vh', minHeight: '100dvh' }}>
+    <section className="relative w-full overflow-hidden" style={{ height: isMobile ? '100dvh' : '100vh' }}>
       {/* Video Panels Grid */}
       <div className="absolute inset-0 grid grid-cols-4 grid-rows-1">
         {videoPanels.map((panel) => (
@@ -264,7 +264,7 @@ export default function Hero() {
           </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce flex items-center justify-center">
         {isMobile ? (
           <ChevronDown className="w-8 h-8 text-white" />
         ) : (
