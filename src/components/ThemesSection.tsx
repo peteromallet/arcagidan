@@ -61,7 +61,7 @@ export default function ThemesSection() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="relative bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group-hover:scale-105 h-full flex flex-col">
+              <div className="relative bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group-hover:scale-105 h-full flex flex-col items-center text-center">
                 {/* Video */}
                 <div className="w-1/2 aspect-square rounded-lg overflow-hidden border border-white/20 mb-6">
                   <video
