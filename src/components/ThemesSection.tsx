@@ -1,10 +1,8 @@
-import { Sparkles, Clock, Rocket } from 'lucide-react'
+import { useRef, useState, useEffect } from 'react'
 
 interface Theme {
   title: string
   description: string
-  icon: React.ReactNode
-  gradient: string
   video: string
 }
 
@@ -12,28 +10,36 @@ const themes: Theme[] = [
   {
     title: 'The way I see it...',
     description: 'Your unique perspective on the world through AI art. Show us your vision.',
-    icon: <Sparkles className="w-8 h-8" />,
-    gradient: 'from-purple-500/20 to-pink-500/20',
     video: '/102112.mp4',
   },
   {
     title: 'Fernweh',
     description: 'Reimagine the past through the lens of tomorrow. Memory meets machine.',
-    icon: <Clock className="w-8 h-8" />,
-    gradient: 'from-blue-500/20 to-cyan-500/20',
     video: '/102112.mp4',
   },
   {
     title: 'In the year 2085,',
     description: 'Paint the future. What will our world look like? How will art evolve?',
-    icon: <Rocket className="w-8 h-8" />,
-    gradient: 'from-orange-500/20 to-red-500/20',
     video: '/102112.mp4',
   },
 ]
 
 export default function ThemesSection() {
-  const videoRefs: { [key: number]: HTMLVideoElement | null } = {}
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === hoveredIndex) {
+          video.play()
+        } else {
+          video.pause()
+          video.currentTime = 0
+        }
+      }
+    })
+  }, [hoveredIndex])
 
   return (
     <section className="py-24 px-6 bg-gradient-to-b from-[#12202f] via-[#13222f] to-[#12202f] relative overflow-hidden">
@@ -52,14 +58,13 @@ export default function ThemesSection() {
             <div
               key={index}
               className="group relative"
-              onMouseEnter={() => videoRefs[index]?.play()}
-              onMouseLeave={() => videoRefs[index]?.pause()}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="relative bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group-hover:scale-105">
-                {/* Video Square in Top Left */}
-                <div className="absolute top-4 left-4 w-20 h-20 rounded-lg overflow-hidden border border-white/20">
+                <div className="w-full h-32 mb-6 rounded-lg overflow-hidden border border-white/20">
                   <video
-                    ref={(el) => (videoRefs[index] = el)}
+                    ref={(el) => (videoRefs.current[index] = el)}
                     src={theme.video}
                     muted
                     loop
@@ -68,8 +73,7 @@ export default function ThemesSection() {
                   />
                 </div>
 
-                {/* Content */}
-                <div className="ml-24">
+                <div>
                   <h3 className="text-2xl md:text-3xl text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all font-bodar">
                     {theme.title}
                   </h3>
