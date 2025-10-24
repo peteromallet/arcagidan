@@ -1,0 +1,3 @@
+# Place your video files here
+# Update the videoUrl paths in src/components/Hero.tsx to use your custom videos
+
