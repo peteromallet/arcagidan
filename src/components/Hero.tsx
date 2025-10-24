@@ -88,10 +88,15 @@ export default function Hero() {
             <video
               ref={(el) => (videoRefs.current[panel.id] = el)}
               className={cn(
-                'absolute inset-0 w-full h-full object-cover transition-all duration-500',
-                hoveredPanel === panel.id
-                  ? 'brightness-100 scale-105'
-                  : 'brightness-[0.3] scale-100'
+                'absolute inset-0 w-full h-full object-cover',
+                isMobile 
+                  ? 'brightness-[0.3]' 
+                  : cn(
+                      'transition-all duration-500',
+                      hoveredPanel === panel.id
+                        ? 'brightness-100 scale-105'
+                        : 'brightness-[0.3] scale-100'
+                    )
               )}
               src={panel.videoUrl}
               poster={panel.posterUrl}
