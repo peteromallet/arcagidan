@@ -49,32 +49,33 @@ export default function ThemesSection() {
           {themes.map((theme, index) => (
             <div
               key={index}
-              className="group relative aspect-square"
+              className="group relative"
             >
-              <video
-                src={theme.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-              />
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl`}
-              ></div>
-              
-              <div className="relative h-full bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 flex flex-col justify-between hover:border-white/30 transition-all duration-300 group-hover:scale-105">
-                <div>
+              <div className="relative bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group-hover:scale-105">
+                {/* Video Square in Top Left */}
+                <div className="absolute top-4 left-4 w-20 h-20 rounded-lg overflow-hidden border border-white/20">
+                  <video
+                    src={theme.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="ml-24">
                   <div className="mb-6 text-white/80 group-hover:text-white transition-colors">
                     {theme.icon}
                   </div>
                   <h3 className="text-2xl md:text-3xl text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all font-bodar">
                     {theme.title}
                   </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    {theme.description}
+                  </p>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  {theme.description}
-                </p>
               </div>
             </div>
           ))}

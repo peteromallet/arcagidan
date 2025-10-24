@@ -52,16 +52,26 @@ const videoPanels: VideoPanel[] = [
 
 export default function Hero({ onScrollClick }: HeroProps) {
   const [hoveredPanel, setHoveredPanel] = useState<number | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
+  // Initialize isMobile synchronously to prevent flash on mount
+  const [isMobile, setIsMobile] = useState(() => 
+    typeof window !== 'undefined' && window.innerWidth < 768
+  )
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({})
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+    // Use matchMedia for more efficient mobile detection
+    const mediaQuery = window.matchMedia('(max-width: 767px)')
+    
+    const handleChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobile(e.matches)
     }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    
+    // Set initial value
+    handleChange(mediaQuery)
+    
+    // Listen for changes
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
   useEffect(() => {
