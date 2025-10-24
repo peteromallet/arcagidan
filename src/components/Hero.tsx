@@ -181,7 +181,7 @@ export default function Hero() {
                 THE
               </div>
               <h1 className={cn(
-                "text-5xl md:text-6xl lg:text-7xl font-bodar text-center whitespace-nowrap flex gap-16 transition-all duration-500 ease-out",
+                "text-5xl md:text-6xl lg:text-7xl font-bodar text-center whitespace-nowrap flex gap-6 transition-all duration-500 ease-out",
                 hoveredPanel !== null ? "opacity-0 scale-95" : "opacity-100 scale-100"
               )}>
                 <div className="flex">
