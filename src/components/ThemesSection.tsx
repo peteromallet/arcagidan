@@ -10,17 +10,17 @@ const themes: Theme[] = [
   {
     title: 'The way I see it...',
     description: 'Your unique perspective on the world through AI art. Show us your vision.',
-    video: '/102112.mp4',
+    video: '/way-i-see-it.mp4',
   },
   {
     title: 'Fernweh',
     description: 'Reimagine the past through the lens of tomorrow. Memory meets machine.',
-    video: '/102112.mp4',
+    video: '/fernweh.mp4',
   },
   {
     title: 'In the year 2085,',
     description: 'Paint the future. What will our world look like? How will art evolve?',
-    video: '/102112.mp4',
+    video: '/2085.mp4',
   },
 ]
 
