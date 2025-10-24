@@ -33,6 +33,8 @@ const themes: Theme[] = [
 ]
 
 export default function ThemesSection() {
+  const videoRefs: { [key: number]: HTMLVideoElement | null } = {}
+
   return (
     <section className="py-24 px-6 bg-gradient-to-b from-[#12202f] via-[#13222f] to-[#12202f] relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-transparent to-blue-500/5 pointer-events-none"></div>
@@ -50,13 +52,15 @@ export default function ThemesSection() {
             <div
               key={index}
               className="group relative"
+              onMouseEnter={() => videoRefs[index]?.play()}
+              onMouseLeave={() => videoRefs[index]?.pause()}
             >
               <div className="relative bg-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group-hover:scale-105">
                 {/* Video Square in Top Left */}
                 <div className="absolute top-4 left-4 w-20 h-20 rounded-lg overflow-hidden border border-white/20">
                   <video
+                    ref={(el) => (videoRefs[index] = el)}
                     src={theme.video}
-                    autoPlay
                     muted
                     loop
                     playsInline
@@ -66,9 +70,6 @@ export default function ThemesSection() {
 
                 {/* Content */}
                 <div className="ml-24">
-                  <div className="mb-6 text-white/80 group-hover:text-white transition-colors">
-                    {theme.icon}
-                  </div>
                   <h3 className="text-2xl md:text-3xl text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all font-bodar">
                     {theme.title}
                   </h3>
