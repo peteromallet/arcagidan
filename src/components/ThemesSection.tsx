@@ -5,6 +5,7 @@ interface Theme {
   description: string
   icon: React.ReactNode
   gradient: string
+  video: string
 }
 
 const themes: Theme[] = [
@@ -13,18 +14,21 @@ const themes: Theme[] = [
     description: 'Your unique perspective on the world through AI art. Show us your vision.',
     icon: <Sparkles className="w-8 h-8" />,
     gradient: 'from-purple-500/20 to-pink-500/20',
+    video: '/102112.mp4',
   },
   {
-    title: 'Nostalgia',
+    title: 'Fernweh',
     description: 'Reimagine the past through the lens of tomorrow. Memory meets machine.',
     icon: <Clock className="w-8 h-8" />,
     gradient: 'from-blue-500/20 to-cyan-500/20',
+    video: '/102112.mp4',
   },
   {
     title: 'In the year 2085,',
     description: 'Paint the future. What will our world look like? How will art evolve?',
     icon: <Rocket className="w-8 h-8" />,
     gradient: 'from-orange-500/20 to-red-500/20',
+    video: '/102112.mp4',
   },
 ]
 
@@ -47,6 +51,14 @@ export default function ThemesSection() {
               key={index}
               className="group relative aspect-square"
             >
+              <video
+                src={theme.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+              />
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl`}
               ></div>
