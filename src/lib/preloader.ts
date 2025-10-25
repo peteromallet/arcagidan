@@ -7,6 +7,7 @@ interface PreloadOptions {
   images: string[]
   videos: { url: string; priority: number }[]
   onProgress?: (loaded: number, total: number) => void
+  onImagesLoaded?: () => void
 }
 
 /**
@@ -43,7 +44,7 @@ const preloadVideo = (src: string): Promise<void> => {
  * Main preloader function
  * Loads all images first, then videos in priority order
  */
-export const preloadAssets = async ({ images, videos, onProgress }: PreloadOptions): Promise<void> => {
+export const preloadAssets = async ({ images, videos, onProgress, onImagesLoaded }: PreloadOptions): Promise<void> => {
   const total = images.length + videos.length
   let loaded = 0
 
@@ -65,6 +66,10 @@ export const preloadAssets = async ({ images, videos, onProgress }: PreloadOptio
       }
     })
   )
+  
+  // Notify that images are loaded
+  console.log('Images loaded!')
+  onImagesLoaded?.()
 
   // Step 2: Sort videos by priority (higher priority first)
   const sortedVideos = [...videos].sort((a, b) => b.priority - a.priority)
