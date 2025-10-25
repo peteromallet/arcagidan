@@ -37,10 +37,10 @@ const AboutSection = forwardRef<HTMLElement>((_props, ref) => {
             </p>
 
             <ul className="list-disc list-inside text-xl space-y-2 ml-4">
-              <li>Francesco Petrarca</li>
-              <li>Arnolfo di Cambio</li>
-              <li>Giotto di Bondone</li>
-              <li>Jean Buridan</li>
+              <li>Francesco Petrar<strong>ca</strong> — poet and scholar who rediscovered classical texts</li>
+              <li><strong>Ar</strong>nolfo di Cambio — architect of Florence Cathedral and Palazzo Vecchio</li>
+              <li><strong>Gi</strong>otto di Bondone — painter who pioneered naturalism in art</li>
+              <li>Jean Buri<strong>dan</strong> — philosopher who challenged Aristotle and prefigured modern physics</li>
             </ul>
 
             <p className="text-xl">
@@ -52,7 +52,12 @@ const AboutSection = forwardRef<HTMLElement>((_props, ref) => {
             </p>
 
             <p className="text-xl">
-              Winners will be <strong>invited to present their work at ADOS LA</strong>, hosted at the legendary Mack Sennett studios in Hollywood.
+              Winners will be <strong>invited to present their work at <a 
+                href="https://ados.events/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-yellow-400 hover:text-yellow-300 underline transition-colors"
+              >ADOS LA</a></strong>, hosted at the legendary Mack Sennett studios in Hollywood.
             </p>
           </div>
         </div>

@@ -155,7 +155,7 @@ export default function Hero({ onScrollClick }: HeroProps) {
               >
                 <h3 className="text-2xl md:text-3xl mb-3 font-bodar text-center">
                   <span className="text-black">{panel.titleHighlight.before}</span>
-                  <span className="text-yellow-300">{panel.titleHighlight.highlight}</span>
+                  <span className="text-black font-bold">{panel.titleHighlight.highlight}</span>
                   <span className="text-black">{panel.titleHighlight.after}</span>
                 </h3>
                 <p className="text-black text-sm md:text-base font-semibold text-center max-w-md leading-relaxed">
@@ -200,12 +200,12 @@ export default function Hero({ onScrollClick }: HeroProps) {
                 hoveredPanel !== null ? "opacity-0 scale-95" : "opacity-100 scale-100"
               )}>
                 <div className="flex">
-                  <span className="tracking-widest text-white font-bodar">AR</span>
-                  <span className="tracking-widest text-white font-bodar">CA</span>
+                  <span className="tracking-widest text-white">AR</span>
+                  <span className="tracking-widest text-white">CA</span>
                 </div>
                 <div className="flex">
-                  <span className="tracking-widest text-white font-bodar">GI</span>
-                  <span className="tracking-widest text-white font-bodar">DAN</span>
+                  <span className="tracking-widest text-white">GI</span>
+                  <span className="tracking-widest text-white">DAN</span>
                 </div>
               </h1>
               <div className={cn(

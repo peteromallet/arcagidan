@@ -32,8 +32,23 @@ const faqs = [
     answer: 'Open source AI art models are models with open weights, such as Stable Diffusion, Flux, and similar models. The weights must be publicly available. We\'re looking for work that leverages the unique control and customization that open models offer.',
   },
   {
+    question: 'Can I use closed models at all?',
+    answer: 'While we won\'t strictly enforce, we have a gentleman\'s agreement that at least 75% is with open models.',
+  },
+  {
     question: 'What are the requirements?',
-    answer: 'Your entry must follow these general guidelines: Length: 1–3 minutes. Mostly use open models: While you can use closed models for specific parts of your workflow, the majority of your work should leverage open source AI models. You take responsibility for content: Ensure your submission doesn\'t violate copyright or contain inappropriate content.',
+    answer: (
+      <>
+        Your entry must follow these general guidelines:
+        <ul className="list-disc list-inside mt-2 space-y-1">
+          <li>Length: 1–3 minutes.</li>
+          <li>Mostly use open models: While you can use closed models for specific parts of your workflow, the majority of your work should leverage open source AI models.</li>
+          <li>You take responsibility for content: Ensure your submission doesn't violate laws or contain inappropriate content.</li>
+          <li>No porn, non-pornographic nudity okay</li>
+          <li>Must follow one theme reasonably closely</li>
+        </ul>
+      </>
+    ),
   },
   {
     question: 'How do I submit my work?',
@@ -54,7 +69,7 @@ const faqs = [
   },
   {
     question: 'What are the themes?',
-    answer: 'You can choose from three themes: "The way I see it..." (your unique perspective), "Nostalgia" (reimagining the past), or "In the year 2085," (painting the future). Each theme is designed to inspire ambitious and meaningful work.',
+    answer: 'See above!',
   },
   {
     question: 'Can I submit multiple entries?',
@@ -67,6 +82,10 @@ const faqs = [
   {
     question: 'What tools can I use?',
     answer: 'You can use any tool - the \'open source\' requirement is on the underlying models. The tool-specific prizes will be awarded to the best work created primarily with ComfyUI or Reigh, with the overall prizes going to the best work regardless of tool used.',
+  },
+  {
+    question: 'What if I can\'t fly to LA on those dates?',
+    answer: 'We\'ll instead invite you to show it at our next event in Paris, most likely in Spring.',
   },
 ]
 

@@ -4,24 +4,31 @@ interface Theme {
   title: string
   description: string
   video: string
+  poster?: string
 }
 
 const themes: Theme[] = [
   {
-    title: 'The way I see it...',
-    description: 'Your unique perspective on the world through AI art. Show us your vision.',
+    title: '"The way I see it..."',
+    description: 'What could others see through your eyes?',
     video: '/way-i-see-it.mp4',
   },
   {
-    title: 'Fernweh',
-    description: 'Reimagine the past through the lens of tomorrow. Memory meets machine.',
+    title: '"Fernweh"',
+    description: 'Longing for a place you\'ve never been',
     video: '/fernweh.mp4',
   },
   {
-    title: 'In the year 2085,',
-    description: 'Paint the future. What will our world look like? How will art evolve?',
+    title: '"In the year 2085,"',
+    description: 'What world will you be leaving behind?',
     video: '/2085.mp4',
   },
+]
+
+const themesWithPosters = [
+  { ...themes[0], poster: '/way-i-see-it-poster.jpg' },
+  { ...themes[1], poster: '/fernweh-poster.jpg' },
+  { ...themes[2], poster: '/2085-poster.jpg' },
 ]
 
 export default function ThemesSection() {
@@ -54,7 +61,7 @@ export default function ThemesSection() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {themes.map((theme, index) => (
+          {themesWithPosters.map((theme, index) => (
             <div
               key={index}
               className="group relative"
@@ -67,6 +74,7 @@ export default function ThemesSection() {
                   <video
                     ref={(el) => (videoRefs.current[index] = el)}
                     src={theme.video}
+                    poster={theme.poster}
                     muted
                     loop
                     playsInline
@@ -81,7 +89,7 @@ export default function ThemesSection() {
                       {theme.title}
                     </h3>
                   </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
+                  <p className="text-gray-300 text-base leading-relaxed">
                     {theme.description}
                   </p>
                 </div>

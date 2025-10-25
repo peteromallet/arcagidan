@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Play, MessageCircle } from 'lucide-react'
+import { Play, MessageCircle, X } from 'lucide-react'
 
 export default function Footer() {
   // Deadline: Sunday, November 2, 2025 at 6:00 PM UTC
@@ -9,6 +9,7 @@ export default function Footer() {
   }
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   function calculateTimeLeft() {
     const difference = +getDeadline() - +new Date()
@@ -32,6 +33,25 @@ export default function Footer() {
 
     return () => clearInterval(timer)
   }, [])
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsModalOpen(false)
+      }
+    }
+    
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'hidden'
+    }
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'unset'
+    }
+  }, [isModalOpen])
 
   return (
     <footer className="py-16 px-6 bg-gradient-to-b from-[#11202d] via-[#0e1922] to-[#08111a] relative overflow-hidden">
@@ -72,7 +92,7 @@ export default function Footer() {
             <Button
               size="lg"
               className="bg-white text-black hover:bg-gray-200 text-lg px-8 py-6"
-              onClick={() => window.open('#', '_blank')}
+              onClick={() => setIsModalOpen(true)}
             >
               <Play className="mr-2 h-5 w-5" />
               Watch Trailer
@@ -98,6 +118,40 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      {/* Video Lightbox Modal */}
+      {isModalOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div 
+            className="relative w-full max-w-6xl mx-4 md:mx-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+              aria-label="Close modal"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            
+            {/* Video Player */}
+            <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+              <video
+                className="w-full h-full"
+                controls
+                autoPlay
+                src="/1013_1-copy1_audio_plus0175.mp4"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   )
 }

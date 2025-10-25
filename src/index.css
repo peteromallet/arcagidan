@@ -45,11 +45,11 @@
 }
 
 @font-face {
-  font-family: 'Bodar';
+  font-family: 'BODAR';
   src: url('/fonts/BODAR.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @layer base {

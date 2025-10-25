@@ -21,7 +21,7 @@ export default {
         coldiac: ['Coldiac', 'serif'],
         meravila: ['Meravila', 'serif'],
         geosans: ['Geosans Light', 'sans-serif'],
-        bodar: ['Bodar', 'sans-serif'],
+        bodar: ['BODAR', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
