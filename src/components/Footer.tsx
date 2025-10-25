@@ -144,7 +144,7 @@ export default function Footer() {
                 className="w-full h-full"
                 controls
                 autoPlay
-                src="/1013_1-copy1_audio_plus0175.mp4"
+                src="/1013_1-copy8.mp4"
               >
                 Your browser does not support the video tag.
               </video>
