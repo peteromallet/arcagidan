@@ -99,17 +99,8 @@ export const getAppAssets = () => {
     '/2085-poster.jpg',
   ]
 
-  const videos = [
-    // Hero videos (higher priority)
-    { url: '/10217.mp4', priority: 4 },
-    { url: '/10219.mp4', priority: 3 },
-    { url: '/102110.mp4', priority: 2 },
-    { url: '/102111.mp4', priority: 1 },
-    // Theme videos (lower priority)
-    { url: '/way-i-see-it.mp4', priority: 0 },
-    { url: '/fernweh.mp4', priority: 0 },
-    { url: '/2085.mp4', priority: 0 },
-  ]
+  // Videos will load in background after page loads, not during preload
+  const videos: { url: string; priority: number }[] = []
 
   return { images, videos }
 }

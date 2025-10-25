@@ -75,6 +75,7 @@ export default function ThemesSection() {
                     ref={(el) => (videoRefs.current[index] = el)}
                     src={theme.video}
                     poster={theme.poster}
+                    preload="metadata"
                     muted
                     loop
                     playsInline
