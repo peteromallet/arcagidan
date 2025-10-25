@@ -13,27 +13,23 @@ const AboutSection = forwardRef<HTMLElement>((_props, ref) => {
           
           <div className="space-y-8 text-gray-200 text-lg leading-relaxed">
             <p className="text-xl">
-              We're on the verge of a significant time in human history.
+              With The Arca Gidan Prize, we hope to create an event that inspires artists in the open source ecosystem to push both themselves and open models to their limits.
             </p>
 
             <p className="text-xl">
-              If you're here, you probably believe that <strong>open source AI should be an important part of this future.</strong> However, you may also feel powerless to influence this.
+              Our goal with it is twofold:
             </p>
 
             <p className="text-xl">
-              Art has a power to win hearts and minds, and the open AI art ecosystem <strong>needs people who push its models to their limits</strong> - those who combine the latest cutting edge technology with raw human effort to create things that leverage the unique control that open models offer.
+              <strong>1)</strong> We hope that it provides a reason for individuals to find out what they can do with AI creatively if they push themselves. Even without recognition or collected achievement, we believe that this is an intrinsic good.
             </p>
 
             <p className="text-xl">
-              While the power of the individual may be limited, the <strong>power of many people creating and sharing increasingly ambitious and deep art</strong> over years should not be underestimated.
+              <strong>2)</strong> Over the years, we hope that we can inspire more people to create art with open models, and push artists to be more ambitious. This in turn may inspire the broader world and, in doing so, increase the odds that we continue to have a flourishing ecosystem of open models.
             </p>
 
             <p className="text-xl">
-              The Arca Gidan prize aims to provide people within the open source AI art ecosystem with <strong>a reason to try to make something better than anything they've made before.</strong> Over the years, we hope that it nudges people down the road towards making legitimate masterpieces.
-            </p>
-
-            <p className="text-xl">
-              In doing so, we hope to <strong>honour those whose work and passion preceded the Renaissance:</strong>
+              In this collected endeavour, we want to <strong>honour those whose work and passion preceded the Renaissance:</strong>
             </p>
 
             <ul className="list-disc list-inside text-xl space-y-2 ml-4">
@@ -44,15 +40,7 @@ const AboutSection = forwardRef<HTMLElement>((_props, ref) => {
             </ul>
 
             <p className="text-xl">
-              Our hope that our collected art and struggle over the years might increase the odds that we have a flourishing ecosystem of open models.
-            </p>
-
-            <p className="text-xl">
-              Our first edition is humble, but we hope you'll participate.
-            </p>
-
-            <p className="text-xl">
-              Winners will be <strong>invited to present their work at <a 
+              Winners from our first edition will be <strong>invited to present their work at <a 
                 href="https://ados.events/" 
                 target="_blank" 
                 rel="noopener noreferrer"
