@@ -104,12 +104,15 @@ export default function PrizeSection() {
             <span className="relative inline-block group cursor-help">
               <span className="underline decoration-dotted decoration-yellow-400/50">giant Toblerone</span>
               <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col items-center">
-                <img 
-                  src="/toblorone.png" 
-                  alt="Giant Toblerone" 
-                  className="rounded-lg shadow-2xl border-2 border-yellow-400/30 brightness-75"
-                  style={{ maxWidth: '200px', height: 'auto' }}
-                />
+                <picture>
+                  <source srcSet="/toblorone.webp" type="image/webp" />
+                  <img 
+                    src="/toblorone.png" 
+                    alt="Giant Toblerone" 
+                    className="rounded-lg shadow-2xl border-2 border-yellow-400/30 brightness-75"
+                    style={{ maxWidth: '200px', height: 'auto' }}
+                  />
+                </picture>
                 <span className="text-yellow-400 text-sm mt-2 font-semibold">4.5kg of Swiss chocolate</span>
               </span>
             </span>

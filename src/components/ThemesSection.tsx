@@ -10,17 +10,17 @@ interface Theme {
 const themes: Theme[] = [
   {
     title: '"The way I see it..."',
-    description: 'What could others see through your eyes?',
+    description: 'What truths reveal themselves to you?',
     video: '/way-i-see-it.mp4',
   },
   {
     title: '"Fernweh"',
-    description: 'Longing for a place you\'ve never been',
+    description: 'Why might a distant world feel like home?',
     video: '/fernweh.mp4',
   },
   {
     title: '"In the year 2085,"',
-    description: 'What world will you be leaving behind?',
+    description: 'What world will you be leaving?',
     video: '/2085.mp4',
   },
 ]
