@@ -96,6 +96,7 @@ export default function Hero({ onScrollClick }: HeroProps) {
           <div
             key={panel.id}
             className="relative overflow-hidden group cursor-pointer"
+            style={{ WebkitTapHighlightColor: 'transparent' }}
             onMouseEnter={() => !isMobile && setHoveredPanel(panel.id)}
             onMouseLeave={() => !isMobile && setHoveredPanel(null)}
             onClick={() => {
