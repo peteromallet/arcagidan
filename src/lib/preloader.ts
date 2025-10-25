@@ -99,8 +99,14 @@ export const getAppAssets = () => {
     '/2085-poster.jpg',
   ]
 
-  // Videos will load in background after page loads, not during preload
-  const videos: { url: string; priority: number }[] = []
+  const videos = [
+    // Hero videos load during preload (high priority)
+    { url: '/10217.mp4', priority: 4 },
+    { url: '/10219.mp4', priority: 3 },
+    { url: '/102110.mp4', priority: 2 },
+    { url: '/102111.mp4', priority: 1 },
+    // Theme videos will load in background after page loads
+  ]
 
   return { images, videos }
 }
