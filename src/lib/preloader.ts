@@ -22,15 +22,20 @@ const preloadImage = (src: string): Promise<void> => {
 }
 
 /**
- * Preload a video (metadata only for faster initial load)
+ * Preload a video (load enough data for smooth playback start)
  */
 const preloadVideo = (src: string): Promise<void> => {
   return new Promise((resolve, reject) => {
     const video = document.createElement('video')
-    video.preload = 'metadata'
-    video.onloadedmetadata = () => resolve()
+    video.preload = 'auto'
+    video.muted = true
+    video.playsInline = true
+    // Wait for enough data to be loaded to start playback smoothly
+    video.oncanplay = () => resolve()
     video.onerror = () => reject(new Error(`Failed to load video: ${src}`))
     video.src = src
+    // Load the video
+    video.load()
   })
 }
 
